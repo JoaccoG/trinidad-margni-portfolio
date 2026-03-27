@@ -1,0 +1,24 @@
+# Build artifacts
+/target
+/dist
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Debug
+*.pdb
+
+# WASM artifacts (generated)
+*.wasm.map
