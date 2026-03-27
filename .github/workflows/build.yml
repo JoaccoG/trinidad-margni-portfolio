@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Production build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: (>) Git checkout
+        uses: actions/checkout@v4
+
+      - name: (>) Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: (>) Cache cargo dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: (>) Install Trunk
+        run: cargo install trunk
+
+      - name: (>) Build for production
+        run: trunk build --release
