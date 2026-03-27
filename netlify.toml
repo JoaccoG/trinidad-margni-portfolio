@@ -1,0 +1,12 @@
+[build]
+  command = "curl -sSL https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf- && ./trunk build --release"
+  publish = "dist"
+
+[build.environment]
+  RUSTUP_TOOLCHAIN = "stable"
+  CARGO_TARGET_DIR = "/opt/buildhome/.cache/cargo-target"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
