@@ -9,16 +9,33 @@ Professional portfolio for a Senior Project Manager built with [Rust](https://ww
 - **Bundler:** Trunk
 - **Hosting:** Netlify
 
+## Setup Project (one time only)
+
+```bash
+./scripts/setup.sh
+```
+
 ## Development
 
 ```bash
-# Install dependencies and run dev server
+# Run dev server
 trunk serve --open
 ```
 
 ```bash
 # Build for production
 trunk build --release
+```
+
+```bash
+# Format code
+cargo fmt
+
+# Lint code
+cargo clippy -- -D warnings
+
+# Run tests
+cargo test
 ```
 
 ## License

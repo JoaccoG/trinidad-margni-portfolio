@@ -1,0 +1,25 @@
+#!/bin/sh
+. "$(dirname "$0")/shared.sh"
+
+hook_start "pre-push"
+
+step "Validating branch name..."
+if ! git rev-parse --abbrev-ref HEAD | grep -qE '^((feature|bug)\/[a-zA-Z0-9\-]+)$'; then
+    fail "Your ${RED}branch name${RESET}${GRAY} must start with ${RED}feature${RESET}${GRAY} or ${RED}bug${RESET}${GRAY}, followed by a ${RED}slash (/)${RESET}${GRAY} and an alphanumeric name (hyphens allowed)."
+    exit 1
+fi
+
+step "Building..."
+if ! trunk build --release > /dev/null 2>&1; then
+    fail "Build ${RED}failed${RESET}${GRAY}. Fix the build errors before pushing."
+    exit 1
+fi
+
+step "Running tests..."
+if ! cargo test > /dev/null 2>&1; then
+    fail "Tests ${RED}failed${RESET}${GRAY}. Fix them before pushing."
+    exit 1
+fi
+
+hook_done "pre-push"
+exit 0
