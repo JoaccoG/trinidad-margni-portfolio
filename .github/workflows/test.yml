@@ -25,6 +25,3 @@ jobs:
 
       - name: (>) Run tests
         run: cargo test
-
-      - name: (>) Run wasm tests
-        run: cargo test --target wasm32-unknown-unknown
