@@ -1,0 +1,25 @@
+#!/bin/sh
+. "$(dirname "$0")/shared.sh"
+
+hook_start "commit-msg"
+
+COMMIT_TYPES="feat|fix|test|docs|refactor|style|chore|perf|ci|deps|infra"
+COMMIT_PATTERN="^($COMMIT_TYPES)(\([a-zA-Z0-9/_-]+\))?!?: .+"
+FIRST_LINE=$(grep -v '^#' "${1}" | grep -v '^$' | head -1)
+TYPES_DISPLAY="${RED}$(echo "$COMMIT_TYPES" | sed "s/|/${GRAY}, ${RED}/g")${RESET}"
+MSG_LEN=${#FIRST_LINE}
+
+step "Validating conventional commits format..."
+if ! echo "$FIRST_LINE" | grep -qE "$COMMIT_PATTERN"; then
+    fail "Your ${RED}commit message${RESET}${GRAY} must follow the ${RED}Conventional Commits${RESET}${GRAY} format:\n    ${RED}<type>${RESET}${GRAY}(optional scope)${RED}: ${RESET}${GRAY}<description>\n    Valid types: ${TYPES_DISPLAY}${GRAY}."
+    exit 1
+fi
+
+step "Validating commit message length..."
+if [ "$MSG_LEN" -gt 120 ] || [ "$MSG_LEN" -lt 8 ]; then
+    fail "Your ${RED}commit message${RESET}${GRAY} must have between ${RED}8${RESET}${GRAY} and ${RED}120${RESET}${GRAY} characters. Yours have: ${RED}${MSG_LEN}${RESET}${GRAY}."
+    exit 1
+fi
+
+hook_done "commit-msg"
+exit 0

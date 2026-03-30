@@ -1,0 +1,36 @@
+name: Code audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  audit:
+    name: Code audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: (>) Git checkout
+        uses: actions/checkout@v4
+
+      - name: (>) Check target is ignored
+        uses: dkershner6/gitignore-parser@6a5fba55e4a7eaafe547c7697a5147e98d6df33e # v1
+        with:
+          must_deny: "target"
+
+      - name: (>) Setup Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+          components: rustfmt, clippy
+
+      - name: (>) Cache cargo dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: (>) Check formatting
+        run: cargo fmt --check
+
+      - name: (>) Run clippy
+        run: cargo clippy -- -D warnings

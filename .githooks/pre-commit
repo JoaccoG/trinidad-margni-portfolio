@@ -1,0 +1,19 @@
+#!/bin/sh
+. "$(dirname "$0")/shared.sh"
+
+hook_start "pre-commit"
+
+step "Checking formatting..."
+if ! cargo fmt --check > /dev/null 2>&1; then
+    fail "Formatting ${RED}failed${RESET}${GRAY}. Run ${RED}cargo fmt${RESET}${GRAY} to fix."
+    exit 1
+fi
+
+step "Running clippy..."
+if ! cargo clippy -- -D warnings > /dev/null 2>&1; then
+    fail "Clippy ${RED}failed${RESET}${GRAY}. Fix the lint errors before committing."
+    exit 1
+fi
+
+hook_done "pre-commit"
+exit 0

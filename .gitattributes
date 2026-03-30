@@ -1,0 +1,31 @@
+* text=auto eol=lf
+
+# Rust sources
+*.rs text diff=rust
+
+# Web files
+*.html text diff=html
+*.css text diff=css
+*.js text
+
+# Config files
+*.toml text
+*.json text
+*.yaml text
+*.yml text
+*.md text diff=markdown
+
+# Generated/build artifacts
+dist/** linguist-generated=true
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.wasm binary
