@@ -9,7 +9,7 @@ Trinidad Margni's professional portfolio.
 - **Language**: Rust
 - **Framework**: Leptos 0.8 (CSR)
 - **Bundler**: Trunk
-- **Styling**: SCSS
+- **Styling**: Tailwind CSS v4
 - **Testing**: cargo test + wasm-bindgen-test
 - **Linting**: clippy (pedantic + nursery)
 - **Formatting**: rustfmt + leptosfmt

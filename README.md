@@ -6,6 +6,7 @@ Professional portfolio for a Senior Project Manager built with [Rust](https://ww
 
 - **Language:** Rust
 - **Framework:** Leptos (CSR)
+- **Styling:** Tailwind
 - **Bundler:** Trunk
 - **Hosting:** Netlify
 
