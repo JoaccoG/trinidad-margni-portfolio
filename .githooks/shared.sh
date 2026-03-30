@@ -1,8 +1,8 @@
-RED=$'\033[0;31m'
-GRAY=$'\033[1;30m'
-GREEN=$'\033[0;32m'
-YELLOW=$'\033[1;33m'
-RESET=$'\033[0m'
+RED=$(printf '\033[0;31m')
+GRAY=$(printf '\033[1;30m')
+GREEN=$(printf '\033[0;32m')
+YELLOW=$(printf '\033[1;33m')
+RESET=$(printf '\033[0m')
 
 hook_start() {
   printf "\n${YELLOW}(>)${RESET} ${GRAY}Running '${RESET}${YELLOW}${1}${RESET}${GRAY}' hook...${RESET}\n"

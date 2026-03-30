@@ -35,8 +35,11 @@ cargo fmt
 # Lint code
 cargo clippy -- -D warnings
 
-# Run tests
+# Run Rust unit tests
 cargo test
+
+# Run WASM/browser integration tests
+wasm-pack test --headless --chrome
 ```
 
 ## License
