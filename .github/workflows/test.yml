@@ -20,8 +20,11 @@ jobs:
         with:
           targets: wasm32-unknown-unknown
 
+      - name: (>) Install wasm-pack
+        run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
       - name: (>) Cache cargo dependencies
         uses: Swatinem/rust-cache@v2
 
-      - name: (>) Run tests
-        run: cargo test
+      - name: (>) Run wasm browser tests
+        run: wasm-pack test --headless --chrome
