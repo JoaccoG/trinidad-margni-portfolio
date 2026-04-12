@@ -1,3 +1,5 @@
+#![allow(clippy::future_not_send)]
+
 use leptos::prelude::*;
 use trinidad_margni_portfolio::App;
 use wasm_bindgen_test::{wasm_bindgen_test, wasm_bindgen_test_configure};
