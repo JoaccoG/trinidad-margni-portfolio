@@ -67,7 +67,7 @@ async fn app_renders_header_and_hero() {
         "image src should reference hero-pic"
     );
 
-    let anchors = ["#about", "#resume", "#certifications", "#contact"];
+    let anchors = ["#home", "#about", "#resume", "#certifications", "#contact"];
     for href in anchors {
         let selector = format!("nav a[href='{href}']");
         let link = doc.query_selector(&selector).unwrap();

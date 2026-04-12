@@ -3,7 +3,7 @@ use leptos::prelude::*;
 #[component]
 pub fn Header() -> impl IntoView {
     let nav_items: [(&str, &str); 5] = [
-        ("Home", "#"),
+        ("Home", "#home"),
         ("About", "#about"),
         ("Resume", "#resume"),
         ("Certifications", "#certifications"),
