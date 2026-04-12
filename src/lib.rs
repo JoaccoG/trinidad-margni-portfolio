@@ -8,8 +8,8 @@ use leptos_router::{
 mod components;
 mod pages;
 
-use crate::pages::home::Home;
-use crate::pages::not_found::NotFound;
+use pages::home::Home;
+use pages::not_found::NotFound;
 
 #[component]
 pub fn App() -> impl IntoView {

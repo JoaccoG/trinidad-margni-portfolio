@@ -1,7 +1,11 @@
 {
   "biome.enabled": false,
   "editor.formatOnSave": true,
-  "rust-analyzer.rustfmt.overrideCommand": ["leptosfmt", "--stdin", "--rustfmt"],
+  "rust-analyzer.rustfmt.overrideCommand": [
+    "leptosfmt",
+    "--stdin",
+    "--rustfmt"
+  ],
   "[rust]": {
     "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
@@ -18,5 +22,6 @@
     "*.rs": "rust",
     "*.css": "tailwindcss"
   },
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "evenBetterToml.schema.enabled": false
 }

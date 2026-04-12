@@ -1,5 +1,5 @@
 [build]
-  command = "curl -sSL https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf- && ./trunk build --release"
+  command = "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable && export PATH=\"$HOME/.cargo/bin:$PATH\" && . \"$HOME/.cargo/env\" && rustup target add wasm32-unknown-unknown && curl -sSL https://github.com/trunk-rs/trunk/releases/latest/download/trunk-x86_64-unknown-linux-gnu.tar.gz | tar -xzf - && chmod +x trunk && ./trunk build --release"
   publish = "dist"
 
 [build.environment]
