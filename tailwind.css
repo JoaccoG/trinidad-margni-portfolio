@@ -1,3 +1,14 @@
 @import "tailwindcss";
 
 @source "./src/**/*.rs";
+
+@theme {
+    --color-primary: #E1DACA;
+    --color-secondary: #F6F5EC;
+    --color-light: #FFFFFF;
+    --color-dark: #000000;
+
+    --font-sans: "Montserrat", sans-serif;
+    --font-serif: "GFS Didot", serif;
+    --font-display: "Allura", cursive;
+}
