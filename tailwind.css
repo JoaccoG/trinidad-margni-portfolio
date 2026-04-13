@@ -2,6 +2,17 @@
 
 @source "./src/**/*.rs";
 
+@theme {
+  --color-primary: #E1DACA;
+  --color-secondary: #F6F5EC;
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
+
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "GFS Didot", serif;
+  --font-display: "Allura", cursive;
+}
+
 @layer base {
     html {
         font-size: 0.875rem;
@@ -27,17 +38,6 @@
     }
 }
 
-@theme {
-    --color-primary: #E1DACA;
-    --color-secondary: #F6F5EC;
-    --color-light: #FFFFFF;
-    --color-dark: #000000;
-
-    --font-sans: "Montserrat", sans-serif;
-    --font-serif: "GFS Didot", serif;
-    --font-display: "Allura", cursive;
-}
-
 @layer components {
     .about-resume-chevron {
         transition: transform 200ms ease;
@@ -45,5 +45,24 @@
 
     details.about-resume[open] .about-resume-chevron {
         transform: rotate(180deg);
+    }
+
+    .companies-track {
+        animation: scroll-left 50s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .companies-track {
+            animation: none;
+        }
+    }
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
     }
 }
