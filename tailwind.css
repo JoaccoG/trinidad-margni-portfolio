@@ -2,6 +2,31 @@
 
 @source "./src/**/*.rs";
 
+@layer base {
+    html {
+        font-size: 0.875rem;
+        scroll-behavior: smooth;
+    }
+
+    @media (width >= 40rem) {
+        html {
+            font-size: 0.9375rem;
+        }
+    }
+
+    @media (width >= 64rem) {
+        html {
+            font-size: 1rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
+
 @theme {
     --color-primary: #E1DACA;
     --color-secondary: #F6F5EC;
@@ -11,4 +36,14 @@
     --font-sans: "Montserrat", sans-serif;
     --font-serif: "GFS Didot", serif;
     --font-display: "Allura", cursive;
+}
+
+@layer components {
+    .about-resume-chevron {
+        transition: transform 200ms ease;
+    }
+
+    details.about-resume[open] .about-resume-chevron {
+        transform: rotate(180deg);
+    }
 }

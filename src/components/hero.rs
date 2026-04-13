@@ -21,16 +21,16 @@ pub fn Hero() -> impl IntoView {
             <div class="relative z-10 flex flex-col w-full">
                 <Header />
 
-                <div class="flex-1 flex flex-col items-center justify-center px-4 sm:px-8 text-center gap-4 sm:gap-6">
-                    <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-tight text-light max-w-4xl">
+                <div class="flex-1 flex flex-col items-center justify-center px-4 sm:px-8 text-center gap-3 sm:gap-6">
+                    <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-tight text-light max-w-4xl">
                         "Leading Projects That Align Teams, Drive Results, and Deliver Impact"
                     </h1>
-                    <p class="font-display text-xl sm:text-2xl md:text-2xl lg:text-3xl text-light/80">
+                    <p class="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-light/80">
                         "Senior Project Manager"
                     </p>
                     <a
                         href="#about"
-                        class="mt-2 sm:mt-4 px-6 sm:px-8 py-3 border border-light text-light font-sans text-xs tracking-[0.2em] uppercase hover:bg-light hover:text-dark transition-colors"
+                        class="mt-2 sm:mt-4 px-5 sm:px-8 py-2.5 sm:py-3 border border-light text-light font-sans text-xs tracking-[0.2em] uppercase hover:bg-light hover:text-dark transition-colors"
                     >
                         "About Me"
                     </a>

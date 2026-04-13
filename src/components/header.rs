@@ -4,10 +4,9 @@ use web_sys::HtmlElement;
 #[component]
 #[allow(clippy::too_many_lines)]
 pub fn Header() -> impl IntoView {
-    const NAV_ITEMS: [(&str, &str); 5] = [
+    const NAV_ITEMS: [(&str, &str); 4] = [
         ("Home", "#home"),
         ("About", "#about"),
-        ("Resume", "#resume"),
         ("Certifications", "#certifications"),
         ("Contact", "#contact"),
     ];
@@ -76,7 +75,7 @@ pub fn Header() -> impl IntoView {
                 <div class="w-full flex items-center justify-center relative z-50">
                     <a
                         href="#home"
-                        class="font-serif text-lg sm:text-2xl tracking-[0.15em] sm:tracking-[0.3em] uppercase text-light px-12 md:px-0"
+                        class="font-serif text-base sm:text-xl md:text-2xl tracking-[0.15em] sm:tracking-[0.3em] uppercase text-light px-12 md:px-0"
                     >
                         "Trinidad Margni"
                     </a>
@@ -187,7 +186,7 @@ pub fn Header() -> impl IntoView {
                             view! {
                                 <a
                                     href=href
-                                    class="font-sans text-sm tracking-[0.2em] uppercase text-light hover:opacity-60 transition-opacity"
+                                    class="font-sans text-xs tracking-[0.2em] uppercase text-light hover:opacity-60 transition-opacity sm:text-sm"
                                     on:click=move |_| {
                                         set_menu_open.set(false);
                                     }
