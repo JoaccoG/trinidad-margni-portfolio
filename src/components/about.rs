@@ -55,7 +55,7 @@ pub fn About() -> impl IntoView {
                         </summary>
                         <div class="absolute left-0 top-full z-50 flex min-w-full w-max flex-col border border-dark bg-secondary/95 text-dark shadow-lg backdrop-blur-sm">
                             <a
-                                class="flex w-full items-center justify-between gap-3 border-b border-dark/20 px-4 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
+                                class="flex w-full items-center justify-between gap-3 border-b border-dark/20 px-6 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
                                 href="/public/files/resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -71,7 +71,7 @@ pub fn About() -> impl IntoView {
                                 />
                             </a>
                             <a
-                                class="flex w-full items-center justify-between gap-3 px-4 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
+                                class="flex w-full items-center justify-between gap-3 px-6 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
                                 href="/public/files/cv.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
