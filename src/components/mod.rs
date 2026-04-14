@@ -6,3 +6,4 @@ pub mod companies;
 pub mod footer;
 pub mod header;
 pub mod hero;
+pub mod social_nav_icons;

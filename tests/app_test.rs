@@ -105,7 +105,7 @@ async fn app_renders_header_and_hero() {
         "image src should reference hero-pic"
     );
 
-    let anchors = ["#home", "#about", "#certifications", "#contact"];
+    let anchors = ["/#home", "/#about", "/#certifications", "/#contact"];
     for href in anchors {
         let selector = format!("nav a[href='{href}']");
         let link = doc.query_selector(&selector).unwrap();
@@ -284,5 +284,44 @@ async fn certifications_category_query_from_home_see_all_link() {
     assert!(
         search.contains("category=web-development"),
         "URL should carry category filter, got search={search}"
+    );
+}
+
+#[wasm_bindgen_test]
+async fn footer_renders_credit_and_portfolio_links() {
+    prepare_test_mount().await;
+    let _app = mount_to(leptos_test_host(), || {
+        view! { <App /> }
+    });
+
+    yield_now().await;
+
+    let doc = web_sys::window().unwrap().document().unwrap();
+
+    let footer = doc
+        .query_selector("footer[role='contentinfo']")
+        .unwrap()
+        .expect("footer landmark");
+    let footer_text = footer.text_content().unwrap_or_default();
+    assert!(
+        footer_text.contains("Designed & Built by"),
+        "footer should show credit line"
+    );
+    assert!(
+        footer_text.contains("Joaquín Godoy"),
+        "footer should name designer"
+    );
+
+    assert!(
+        doc.query_selector("footer a[href='https://joaquingodoy.com']")
+            .unwrap()
+            .is_some(),
+        "footer should link to designer site"
+    );
+    assert!(
+        doc.query_selector("footer a[href='/#home']")
+            .unwrap()
+            .is_some(),
+        "footer nav should include home hash link"
     );
 }
