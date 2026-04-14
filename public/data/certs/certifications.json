@@ -1,0 +1,43 @@
+{
+  "categories": [
+    {
+      "id": "project-management",
+      "name": "Project Management & CSM",
+      "order": 10
+    },
+    {
+      "id": "artificial-intelligence",
+      "name": "Artificial Intelligence",
+      "order": 20
+    },
+    {
+      "id": "web-development",
+      "name": "Web Development",
+      "order": 30
+    },
+    {
+      "id": "digital-marketing",
+      "name": "Digital Marketing",
+      "order": 40
+    },
+    {
+      "id": "product-management",
+      "name": "Product Management & e-Commerce",
+      "order": 50
+    },
+    {
+      "id": "communications",
+      "name": "Communications",
+      "order": 60
+    }
+  ],
+  "certificationBundles": [
+    "1-project-management-and-csm.json",
+    "2-artificial-intelligence.json",
+    "3-web-development.json",
+    "4-digital-marketing.json",
+    "5-product-management-and-e-commerce.json",
+    "6-communications.json"
+  ],
+  "certifications": []
+}

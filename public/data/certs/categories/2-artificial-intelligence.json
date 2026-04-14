@@ -1,0 +1,145 @@
+{
+  "certifications": [
+    {
+      "id": "google-ai-essentials",
+      "name": "AI Essentials",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-ai-essentials.jpg"
+    },
+    {
+      "id": "anthropic-claude-with-the-anthropic-api",
+      "name": "Claude with the Anthropic API",
+      "issuer": "Anthropic",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-claude-with-the-anthropic-api.jpg"
+    },
+    {
+      "id": "google-prompting-essentials",
+      "name": "Prompting Essentials",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-prompting-essentials.jpg"
+    },
+    {
+      "id": "google-maximize-productivity-with-ai-tools",
+      "name": "Maximize Productivity With AI Tools",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-maximize-productivity-with-ai-tools.jpg"
+    },
+    {
+      "id": "anthropic-claude-code-in-action",
+      "name": "Claude Code in Action",
+      "issuer": "Anthropic",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 500,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-claude-code-in-action.jpg"
+    },
+    {
+      "id": "anthropic-introduction-to-agent-skills",
+      "name": "Introduction to Agent Skills",
+      "issuer": "Anthropic",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 600,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-introduction-to-agent-skills.jpg"
+    },
+    {
+      "id": "google-use-ai-as-a-creative-or-expert-partner",
+      "name": "Use AI as a Creative or Expert Partner",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-use-ai-as-a-creative-or-expert-partner.jpg"
+    },
+    {
+      "id": "google-speed-up-data-analysis-and-presentation-building",
+      "name": "Speed Up Data Analysis and Presentation Building",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-speed-up-data-analysis-and-presentation-building.jpg"
+    },
+    {
+      "id": "google-design-prompts-for-everyday-work-tasks",
+      "name": "Design Prompts for Everyday Work Tasks",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-design-prompts-for-everyday-work-tasks.jpg"
+    },
+    {
+      "id": "google-start-writing-prompts-like-a-pro",
+      "name": "Start Writing Prompts like a Pro",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-start-writing-prompts-like-a-pro.jpg"
+    },
+    {
+      "id": "google-stay-ahead-of-the-ai-curve",
+      "name": "Stay Ahead of the AI Curve",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-stay-ahead-of-the-ai-curve.jpg"
+    },
+    {
+      "id": "google-use-ai-responsibly",
+      "name": "Use AI Responsibly",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-use-ai-responsibly.jpg"
+    },
+    {
+      "id": "google-discover-the-art-of-prompting",
+      "name": "Discover the Art of Prompting",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-discover-the-art-of-prompting.jpg"
+    },
+    {
+      "id": "google-introduction-to-ai",
+      "name": "Introduction to AI",
+      "issuer": "Google",
+      "year": 2025,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/google-introduction-to-ai.jpg"
+    },
+    {
+      "id": "anthropic-introduction-to-model-context-protocol",
+      "name": "Introduction to Model Context Protocol",
+      "issuer": "Anthropic",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-introduction-to-model-context-protocol.jpg"
+    }
+  ]
+}

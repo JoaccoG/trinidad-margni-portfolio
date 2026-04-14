@@ -1,6 +1,7 @@
 use leptos::prelude::*;
 
 use crate::components::about::About;
+use crate::components::certifications::Certifications;
 use crate::components::companies::Companies;
 use crate::components::hero::Hero;
 
@@ -11,6 +12,7 @@ pub fn Home() -> impl IntoView {
             <Hero />
             <About />
             <Companies />
+            <Certifications />
         </main>
     }
 }

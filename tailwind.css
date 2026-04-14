@@ -56,6 +56,52 @@
             animation: none;
         }
     }
+
+    .cert-tabs-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+    }
+
+    .cert-tabs-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .cert-tabs-scroll::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .cert-tab-active {
+        transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+    }
+
+    .cert-modal-enter {
+        animation: cert-modal-fade-in 180ms ease-out both;
+    }
+
+    .cert-modal-active {
+        animation: cert-modal-pop 200ms ease-out both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cert-modal-enter,
+        .cert-modal-active {
+            animation: none;
+        }
+    }
+
+    /* Home featured: show first 4 cards on tablet, first 3 on small phones (DOM order = lowest `order` first). */
+    @media (max-width: 768px) {
+        .cert-home-featured-grid > button:nth-child(n + 5) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cert-home-featured-grid > button:nth-child(n + 4) {
+            display: none;
+        }
+    }
 }
 
 @keyframes scroll-left {
@@ -64,5 +110,25 @@
     }
     to {
         transform: translateX(-50%);
+    }
+}
+
+@keyframes cert-modal-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cert-modal-pop {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 }
