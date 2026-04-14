@@ -1,0 +1,181 @@
+{
+  "certifications": [
+    {
+      "id": "scrum-alliance-csm",
+      "name": "Certified ScrumMaster",
+      "issuer": "Scrum Alliance",
+      "year": 2024,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/1-project-management-and-csm/scrum-alliance-csm.png"
+    },
+    {
+      "id": "ibm-it-project-manager",
+      "name": "IT Project Manager",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-it-project-manager.png"
+    },
+    {
+      "id": "google-project-management",
+      "name": "Project Management",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-project-management.png"
+    },
+    {
+      "id": "utn-virtual-teams-leadership",
+      "name": "Virtual Teams Leadership",
+      "issuer": "UTN",
+      "year": 2025,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/1-project-management-and-csm/utn-virtual-teams-leadership.jpeg"
+    },
+    {
+      "id": "google-agile-project-management",
+      "name": "Agile Project Management",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 500,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-agile-project-management.png"
+    },
+    {
+      "id": "skillup-project-lifecycle-information-sharing-and-risk-management",
+      "name": "Project Lifecycle, Information Sharing, and Risk Management",
+      "issuer": "SkillUp",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": true,
+      "order": 600,
+      "image": "/public/assets/certs/1-project-management-and-csm/skillup-project-lifecycle-information-sharing-and-risk-management.png"
+    },
+    {
+      "id": "google-foundations-of-project-management",
+      "name": "Foundations of Project Management",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-foundations-of-project-management.png"
+    },
+    {
+      "id": "google-project-initiation-starting-a-successful-project",
+      "name": "Project Initiation: Starting a Successful Project",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-project-initiation-starting-a-successful-project.png"
+    },
+    {
+      "id": "google-project-planning-putting-it-all-together",
+      "name": "Project Planning: Putting It All Together",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-project-planning-putting-it-all-together.png"
+    },
+    {
+      "id": "google-project-execution-running-the-project",
+      "name": "Project Execution: Running the Project",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-project-execution-running-the-project.png"
+    },
+    {
+      "id": "google-capstone-applying-project-management-in-the-real-world",
+      "name": "Capstone: Applying Project Management in the Real World",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/google-capstone-applying-project-management-in-the-real-world.png"
+    },
+    {
+      "id": "ibm-introduction-to-project-management",
+      "name": "Introduction to Project Management",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-introduction-to-project-management.png"
+    },
+    {
+      "id": "skillup-project-management-foundations-initiation-and-planning",
+      "name": "Project Management Foundations, Initiation, and Planning",
+      "issuer": "SkillUp",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/skillup-project-management-foundations-initiation-and-planning.png"
+    },
+    {
+      "id": "skillup-project-management-communication-stakeholders-and-leadership",
+      "name": "Project Management Communication, Stakeholders & Leadership",
+      "issuer": "SkillUp",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/skillup-project-management-communication-stakeholders-and-leadership.png"
+    },
+    {
+      "id": "ibm-information-technology-it-fundamentals-for-everyone",
+      "name": "Information Technology (IT) Fundamentals for Everyone",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-information-technology-it-fundamentals-for-everyone.png"
+    },
+    {
+      "id": "ibm-introduction-to-software-engineering",
+      "name": "Introduction to Software Engineering",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-introduction-to-software-engineering.png"
+    },
+    {
+      "id": "ibm-introduction-to-agile-development-and-scrum",
+      "name": "Introduction to Agile Development and Scrum",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-introduction-to-agile-development-and-scrum.png"
+    },
+    {
+      "id": "skillup-introduction-to-scrum-master-profession",
+      "name": "Introduction to Scrum Master Profession",
+      "issuer": "SkillUp",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/skillup-introduction-to-scrum-master-profession.png"
+    },
+    {
+      "id": "ibm-project-management-capstone",
+      "name": "Project Management Capstone",
+      "issuer": "IBM",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/ibm-project-management-capstone.png"
+    }
+  ]
+}

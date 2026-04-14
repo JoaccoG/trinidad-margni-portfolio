@@ -6,8 +6,11 @@ use leptos_router::{
 };
 
 mod components;
+mod data;
 mod pages;
+mod site_links;
 
+use pages::certifications::CertificationsPage;
 use pages::home::Home;
 use pages::not_found::NotFound;
 
@@ -22,6 +25,7 @@ pub fn App() -> impl IntoView {
         <Router>
             <Routes fallback=|| view! { <NotFound /> }>
                 <Route path=path!("/") view=Home />
+                <Route path=path!("/certifications") view=CertificationsPage />
             </Routes>
         </Router>
     }

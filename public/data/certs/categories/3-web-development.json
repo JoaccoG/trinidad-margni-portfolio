@@ -1,0 +1,73 @@
+{
+  "certifications": [
+    {
+      "id": "shecodes-front-end-development",
+      "name": "Frontend Development",
+      "issuer": "SheCodes",
+      "year": 2022,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/3-web-development/shecodes-front-end-development.png"
+    },
+    {
+      "id": "shecodes-react-development",
+      "name": "React Development",
+      "issuer": "SheCodes",
+      "year": 2022,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/3-web-development/shecodes-react-development.png"
+    },
+    {
+      "id": "coderhouse-front-end-react-career",
+      "name": "Frontend Development Career",
+      "issuer": "Coderhouse",
+      "year": 2023,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/3-web-development/coderhouse-front-end-react-career.png"
+    },
+    {
+      "id": "coderhouse-react-js",
+      "name": "React",
+      "issuer": "Coderhouse",
+      "year": 2023,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/3-web-development/coderhouse-react-js.png"
+    },
+    {
+      "id": "coderhouse-javascript",
+      "name": "JavaScript",
+      "issuer": "Coderhouse",
+      "year": 2023,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 500,
+      "image": "/public/assets/certs/3-web-development/coderhouse-javascript.png"
+    },
+    {
+      "id": "coderhouse-web-development",
+      "name": "Web Development",
+      "issuer": "Coderhouse",
+      "year": 2023,
+      "category": "web-development",
+      "isFeatured": true,
+      "order": 600,
+      "image": "/public/assets/certs/3-web-development/coderhouse-web-development.png"
+    },
+    {
+      "id": "shecodes-introduction-to-coding",
+      "name": "Introduction to Coding",
+      "issuer": "SheCodes",
+      "year": 2021,
+      "category": "web-development",
+      "isFeatured": false,
+      "image": "/public/assets/certs/3-web-development/shecodes-introduction-to-coding.png"
+    }
+  ]
+}

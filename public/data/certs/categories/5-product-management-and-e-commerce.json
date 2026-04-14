@@ -1,0 +1,34 @@
+{
+  "certifications": [
+    {
+      "id": "coderhouse-carrera-de-producto",
+      "name": "Product Management Career",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "product-management",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/5-product-management-and-e-commerce/coderhouse-carrera-de-producto.png"
+    },
+    {
+      "id": "coderhouse-product-manager",
+      "name": "Product Manager",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "product-management",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/5-product-management-and-e-commerce/coderhouse-product-manager.png"
+    },
+    {
+      "id": "coderhouse-e-commerce",
+      "name": "E-commerce",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "product-management",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/5-product-management-and-e-commerce/coderhouse-e-commerce.png"
+    }
+  ]
+}

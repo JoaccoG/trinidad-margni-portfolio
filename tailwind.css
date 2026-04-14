@@ -3,12 +3,132 @@
 @source "./src/**/*.rs";
 
 @theme {
-    --color-primary: #E1DACA;
-    --color-secondary: #F6F5EC;
-    --color-light: #FFFFFF;
-    --color-dark: #000000;
+  --color-primary: #E1DACA;
+  --color-secondary: #F6F5EC;
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
 
-    --font-sans: "Montserrat", sans-serif;
-    --font-serif: "GFS Didot", serif;
-    --font-display: "Allura", cursive;
+  --font-sans: "Montserrat", sans-serif;
+  --font-serif: "GFS Didot", serif;
+  --font-display: "Allura", cursive;
+}
+
+@layer base {
+    html {
+        font-size: 0.875rem;
+        scroll-behavior: smooth;
+    }
+
+    @media (width >= 40rem) {
+        html {
+            font-size: 0.9375rem;
+        }
+    }
+
+    @media (width >= 64rem) {
+        html {
+            font-size: 1rem;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
+}
+
+@layer components {
+    .about-resume-chevron {
+        transition: transform 200ms ease;
+    }
+
+    details.about-resume[open] .about-resume-chevron {
+        transform: rotate(180deg);
+    }
+
+    .companies-track {
+        animation: scroll-left 50s linear infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .companies-track {
+            animation: none;
+        }
+    }
+
+    .cert-tabs-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+    }
+
+    .cert-tabs-scroll::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .cert-tabs-scroll::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .cert-tab-active {
+        transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+    }
+
+    .cert-modal-enter {
+        animation: cert-modal-fade-in 180ms ease-out both;
+    }
+
+    .cert-modal-active {
+        animation: cert-modal-pop 200ms ease-out both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .cert-modal-enter,
+        .cert-modal-active {
+            animation: none;
+        }
+    }
+
+    /* Home featured: show first 4 cards on tablet, first 3 on small phones (DOM order = lowest `order` first). */
+    @media (max-width: 768px) {
+        .cert-home-featured-grid > button:nth-child(n + 5) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cert-home-featured-grid > button:nth-child(n + 4) {
+            display: none;
+        }
+    }
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes cert-modal-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cert-modal-pop {
+    from {
+        opacity: 0;
+        transform: translateY(6px) scale(0.99);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }

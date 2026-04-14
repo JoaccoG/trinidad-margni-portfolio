@@ -1,0 +1,44 @@
+{
+  "certifications": [
+    {
+      "id": "axon-training-neuro-oratoria",
+      "name": "Neuro-Oratoria",
+      "issuer": "Axon Training",
+      "year": 2021,
+      "category": "communications",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/6-communications/axon-training-neuro-oratoria.png"
+    },
+    {
+      "id": "udemy-storytelling-para-negocios-impacta-contando-historias",
+      "name": "Storytelling for Business: Impact by Telling Stories",
+      "issuer": "Udemy",
+      "year": 2021,
+      "category": "communications",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/6-communications/udemy-storytelling-para-negocios-impacta-contando-historias.jpg"
+    },
+    {
+      "id": "udemy-podcast-masterclass-the-essentials-for-podcasting-success",
+      "name": "Podcast Masterclass: The Essentials for Podcasting Success",
+      "issuer": "Udemy",
+      "year": 2021,
+      "category": "communications",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/6-communications/udemy-podcast-masterclass-the-essentials-for-podcasting-success.jpg"
+    },
+    {
+      "id": "crehana-introduccion-a-la-redaccion-digital",
+      "name": "Introduction to Digital Writing",
+      "issuer": "Crehana",
+      "year": 2020,
+      "category": "communications",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/6-communications/crehana-introduccion-a-la-redaccion-digital.png"
+    }
+  ]
+}

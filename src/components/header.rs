@@ -1,17 +1,13 @@
 use leptos::prelude::*;
 use web_sys::HtmlElement;
 
+use crate::site_links::{HOME_LOGO_HREF, NAV_ITEMS};
+
+use super::social_nav_icons::SocialNavIcons;
+
 #[component]
 #[allow(clippy::too_many_lines)]
 pub fn Header() -> impl IntoView {
-    const NAV_ITEMS: [(&str, &str); 5] = [
-        ("Home", "#home"),
-        ("About", "#about"),
-        ("Resume", "#resume"),
-        ("Certifications", "#certifications"),
-        ("Contact", "#contact"),
-    ];
-
     let (menu_open, set_menu_open) = signal(false);
 
     let toggle_menu = move |_| {
@@ -37,52 +33,19 @@ pub fn Header() -> impl IntoView {
         }
     });
 
-    let social_icons = || {
-        view! {
-            <div class="flex items-center gap-4">
-                <a
-                    href="https://www.linkedin.com/in/trinidadmargni"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:opacity-60 transition-opacity"
-                    aria-label="LinkedIn"
-                >
-                    <img
-                        src="/public/assets/icons/linkedin.svg"
-                        alt="LinkedIn"
-                        class="w-[18px] h-[18px] invert"
-                    />
-                </a>
-                <a
-                    href="https://www.instagram.com/trinidadmargni"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="hover:opacity-60 transition-opacity"
-                    aria-label="Instagram"
-                >
-                    <img
-                        src="/public/assets/icons/instagram.svg"
-                        alt="Instagram"
-                        class="w-[18px] h-[18px] invert"
-                    />
-                </a>
-            </div>
-        }
-    };
-
     view! {
         <header class="w-full pt-8 pb-4 z-50 relative">
             <div class="flex flex-col items-center gap-4 px-4 sm:px-8">
                 <div class="w-full flex items-center justify-center relative z-50">
                     <a
-                        href="#home"
-                        class="font-serif text-lg sm:text-2xl tracking-[0.15em] sm:tracking-[0.3em] uppercase text-light px-12 md:px-0"
+                        href=HOME_LOGO_HREF
+                        class="font-serif text-base sm:text-xl md:text-2xl tracking-[0.15em] sm:tracking-[0.3em] uppercase text-light px-12 md:px-0"
                     >
                         "Trinidad Margni"
                     </a>
 
                     <div class="hidden md:flex absolute right-0 items-center gap-4">
-                        {social_icons()}
+                        <SocialNavIcons />
                     </div>
 
                     <button
@@ -187,7 +150,7 @@ pub fn Header() -> impl IntoView {
                             view! {
                                 <a
                                     href=href
-                                    class="font-sans text-sm tracking-[0.2em] uppercase text-light hover:opacity-60 transition-opacity"
+                                    class="font-sans text-xs tracking-[0.2em] uppercase text-light hover:opacity-60 transition-opacity sm:text-sm"
                                     on:click=move |_| {
                                         set_menu_open.set(false);
                                     }
@@ -199,7 +162,9 @@ pub fn Header() -> impl IntoView {
                         .collect_view()}
                 </nav>
 
-                <div class="flex items-center gap-6 pt-4">{social_icons()}</div>
+                <div class="flex items-center gap-6 pt-4">
+                    <SocialNavIcons />
+                </div>
             </div>
         </header>
     }
