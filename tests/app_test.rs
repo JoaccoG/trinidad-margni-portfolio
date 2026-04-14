@@ -2,6 +2,7 @@
 
 use leptos::prelude::*;
 use trinidad_margni_portfolio::App;
+use wasm_bindgen::JsCast;
 use wasm_bindgen_test::{wasm_bindgen_test, wasm_bindgen_test_configure};
 
 wasm_bindgen_test_configure!(run_in_browser);
@@ -154,5 +155,95 @@ async fn about_resume_uses_icon_assets() {
     assert!(
         n >= 2 && n.is_multiple_of(2),
         "each about block should have two external-link icons (found {n})"
+    );
+}
+
+#[wasm_bindgen_test]
+async fn home_certifications_explore_link_navigates_to_full_page() {
+    mount_to_body(|| {
+        view! { <App /> }
+    });
+
+    yield_now().await;
+
+    let win = web_sys::window().unwrap();
+    let doc = win.document().unwrap();
+
+    let section = doc
+        .query_selector("#certifications")
+        .unwrap()
+        .expect("certifications section");
+    let section_text = section.text_content().unwrap_or_default();
+    assert!(
+        section_text.contains("Explore all certifications"),
+        "home should link to full catalog"
+    );
+    assert!(
+        section_text.contains('(') && section_text.contains(')'),
+        "explore link should include total count in parentheses"
+    );
+
+    let link = section
+        .query_selector("a[href='/certifications']")
+        .unwrap()
+        .expect("explore all certifications link");
+    link.dyn_into::<web_sys::HtmlAnchorElement>()
+        .expect("explore link should be an anchor")
+        .click();
+
+    yield_now().await;
+    yield_now().await;
+
+    let heading = doc
+        .query_selector("#all-certs-heading")
+        .unwrap()
+        .expect("certifications page heading after client navigation");
+    assert!(
+        heading
+            .text_content()
+            .unwrap_or_default()
+            .contains("All certifications")
+    );
+}
+
+#[wasm_bindgen_test]
+async fn certifications_category_query_from_home_see_all_link() {
+    mount_to_body(|| {
+        view! { <App /> }
+    });
+
+    yield_now().await;
+
+    let win = web_sys::window().unwrap();
+    let doc = win.document().unwrap();
+
+    doc.query_selector("#cert-tab-web-development")
+        .unwrap()
+        .expect("web development tab")
+        .dyn_into::<web_sys::HtmlElement>()
+        .expect("tab should be an element")
+        .click();
+
+    yield_now().await;
+
+    let section = doc
+        .query_selector("#certifications")
+        .unwrap()
+        .expect("certifications section");
+    let link = section
+        .query_selector("a[href='/certifications?category=web-development']")
+        .unwrap()
+        .expect("see all link for active category");
+    link.dyn_into::<web_sys::HtmlAnchorElement>()
+        .expect("see all link should be an anchor")
+        .click();
+
+    yield_now().await;
+    yield_now().await;
+
+    let search = win.location().search().unwrap_or_default();
+    assert!(
+        search.contains("category=web-development"),
+        "URL should carry category filter, got search={search}"
     );
 }

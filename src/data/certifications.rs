@@ -199,3 +199,41 @@ fn cert_order_within_category(
         (None, None) => ia.cmp(&ib),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn load_certifications_has_expected_catalog_size() {
+        let data = load_certifications_data();
+        assert_eq!(data.certifications.len(), 78);
+    }
+
+    #[test]
+    fn every_category_has_at_least_one_certification() {
+        let data = load_certifications_data();
+        assert_eq!(data.categories.len(), 6);
+        for cat in &data.categories {
+            assert!(
+                data.count_for_category(&cat.id) > 0,
+                "category {} should not be empty",
+                cat.id
+            );
+        }
+    }
+
+    #[test]
+    fn featured_for_category_sorted_by_order_then_id() {
+        let data = load_certifications_data();
+        let featured = data.featured_for_category("digital-marketing");
+        assert!(!featured.is_empty());
+        let orders: Vec<u32> = featured
+            .iter()
+            .map(|c| c.order.expect("featured cert should have order"))
+            .collect();
+        let mut sorted = orders.clone();
+        sorted.sort_unstable();
+        assert_eq!(orders, sorted);
+    }
+}
