@@ -8,6 +8,7 @@ use leptos_router::{NavigateOptions, hooks::use_navigate, hooks::use_query_map};
 
 use crate::components::cert_card::CertCard;
 use crate::components::cert_modal::CertModal;
+use crate::components::footer::Footer;
 use crate::data::certifications::{Certification, certification_store};
 
 type FilterFn = dyn Fn(Option<&str>);
@@ -269,6 +270,7 @@ pub fn CertificationsPage() -> impl IntoView {
                         </Show>
                     </div>
                 </section>
+                <Footer />
             </div>
             <CertModal state=modal_state />
         </>

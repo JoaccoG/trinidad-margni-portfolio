@@ -8,6 +8,7 @@ use leptos_router::{
 mod components;
 mod data;
 mod pages;
+mod site_links;
 
 use pages::certifications::CertificationsPage;
 use pages::home::Home;
