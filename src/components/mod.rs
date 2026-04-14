@@ -3,5 +3,6 @@ pub mod cert_card;
 pub mod cert_modal;
 pub mod certifications;
 pub mod companies;
+pub mod footer;
 pub mod header;
 pub mod hero;
