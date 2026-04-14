@@ -73,7 +73,7 @@ pub fn Certifications() -> impl IntoView {
                                             (active_category.get() == id_for_selected).to_string()
                                         }
                                         class=move || {
-                                            let mobile = "shrink-0 rounded-full border px-4 py-2 text-left font-sans text-[0.65rem] tracking-wide uppercase transition-colors md:rounded-none md:border-0 md:px-0 md:py-3 md:pl-4 md:pr-2 md:text-xs";
+                                            let mobile = "cursor-pointer shrink-0 rounded-full border px-4 py-2 text-left font-sans text-[0.65rem] tracking-wide uppercase transition-colors md:rounded-none md:border-0 md:px-0 md:py-3 md:pl-4 md:pr-2 md:text-xs";
                                             if active_category.get() == id_for_class {
                                                 format!(
                                                     "{mobile} cert-tab-active border-dark bg-dark text-light md:border-l-2 md:border-dark md:bg-transparent md:font-semibold md:text-dark",
