@@ -1709,6 +1709,8 @@ dependencies = [
  "leptos_meta",
  "leptos_router",
  "log",
+ "serde",
+ "serde_json",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "wasm-bindgen-test",
