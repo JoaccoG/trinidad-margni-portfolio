@@ -1,0 +1,280 @@
+{
+  "certifications": [
+    {
+      "id": "google-digital-marketing-and-e-commerce",
+      "name": "Digital Marketing & E-commerce",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 100,
+      "image": "/public/assets/certs/4-digital-marketing/google-digital-marketing-and-e-commerce.png"
+    },
+    {
+      "id": "coderhouse-carrera-de-marketing-digital",
+      "name": "Digital Marketing Career",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 200,
+      "image": "/public/assets/certs/4-digital-marketing/coderhouse-carrera-de-marketing-digital.png"
+    },
+    {
+      "id": "coderhouse-growth-marketing",
+      "name": "Marketing Growth",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 300,
+      "image": "/public/assets/certs/4-digital-marketing/coderhouse-growth-marketing.png"
+    },
+    {
+      "id": "uc-davis-search-engine-optimization",
+      "name": "Search Engine Optimization (SEO)",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-search-engine-optimization.png"
+    },
+    {
+      "id": "coderhouse-seo-optimizacion-de-motores-de-busqueda",
+      "name": "SEO - Search Engine Optimization",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 500,
+      "image": "/public/assets/certs/4-digital-marketing/coderhouse-seo-optimizacion-de-motores-de-busqueda.png"
+    },
+    {
+      "id": "google-attract-and-engage-customers-with-digital-marketing",
+      "name": "Attract and Engage Customers with Digital Marketing",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": true,
+      "order": 600,
+      "image": "/public/assets/certs/4-digital-marketing/google-attract-and-engage-customers-with-digital-marketing.png"
+    },
+    {
+      "id": "coderhouse-marketing-digital-community-manager-y-publicidad",
+      "name": "Marketing Digital: Community Manager y Publicidad",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/coderhouse-marketing-digital-community-manager-y-publicidad.png"
+    },
+    {
+      "id": "coderhouse-marketing-digital-publicidad-en-redes-avanzado",
+      "name": "Marketing Digital: Publicidad en Redes Avanzado",
+      "issuer": "Coderhouse",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/coderhouse-marketing-digital-publicidad-en-redes-avanzado.png"
+    },
+    {
+      "id": "google-ads-search-certification",
+      "name": "Google Ads - Search Advertising Certification",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-ads-search-certification.png"
+    },
+    {
+      "id": "google-ads-display-certification",
+      "name": "Google Ads - Display Advertising Certification",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-ads-display-certification.png"
+    },
+    {
+      "id": "google-analytics-individual-qualification",
+      "name": "Google Analytics Individual Qualification",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-analytics-individual-qualification.png"
+    },
+    {
+      "id": "facebook-blueprint-business-manager",
+      "name": "Business Manager",
+      "issuer": "Meta",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/facebook-blueprint-business-manager.png"
+    },
+    {
+      "id": "facebook-blueprint-create-facebook-ads",
+      "name": "Create Facebook Ads",
+      "issuer": "Meta",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/facebook-blueprint-create-facebook-ads.png"
+    },
+    {
+      "id": "uc-davis-introduction-to-google-seo",
+      "name": "Introduction to Google SEO",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-introduction-to-google-seo.png"
+    },
+    {
+      "id": "uc-davis-google-seo-fundamentals",
+      "name": "Google SEO Fundamentals",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-google-seo-fundamentals.png"
+    },
+    {
+      "id": "uc-davis-optimizing-a-website-for-google-search",
+      "name": "Website Optimization for Google Search",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-optimizing-a-website-for-google-search.png"
+    },
+    {
+      "id": "uc-davis-advanced-content-and-social-tactics-to-optimize-seo",
+      "name": "Advanced Content and Social Tactics for SEO Optimization",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-advanced-content-and-social-tactics-to-optimize-seo.png"
+    },
+    {
+      "id": "uc-davis-google-seo-capstone-project",
+      "name": "Google SEO Capstone Project",
+      "issuer": "UC Davis",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/uc-davis-google-seo-capstone-project.png"
+    },
+    {
+      "id": "google-activate-fundamentos-de-marketing-digital",
+      "name": "Foundations of Digital Marketing",
+      "issuer": "Google",
+      "year": 2020,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-activate-fundamentos-de-marketing-digital.png"
+    },
+    {
+      "id": "google-activate-comercio-electronico",
+      "name": "E-commerce",
+      "issuer": "Google",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-activate-comercio-electronico.png"
+    },
+    {
+      "id": "luzzi-digital-curso-facebook-e-instagram-ads",
+      "name": "Facebook & Instagram Ads Course",
+      "issuer": "Luzzi Digital",
+      "year": 2021,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/luzzi-digital-curso-facebook-e-instagram-ads.png"
+    },
+    {
+      "id": "udemy-digital-marketing-lead-generation-and-sales-conversion-course",
+      "name": "Digital Marketing: Lead Generation & Sales Conversion Course",
+      "issuer": "Udemy",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/udemy-digital-marketing-lead-generation-and-sales-conversion-course.jpg"
+    },
+    {
+      "id": "crehana-google-data-studio-reportes-y-dashboards",
+      "name": "Google Data Studio: Reportes y dashboards",
+      "issuer": "Crehana",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/crehana-google-data-studio-reportes-y-dashboards.png"
+    },
+    {
+      "id": "crehana-domina-google-analytics-y-la-analitica-digital",
+      "name": "Master Google Analytics and Digital Analytics",
+      "issuer": "Crehana",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/crehana-domina-google-analytics-y-la-analitica-digital.png"
+    },
+    {
+      "id": "google-foundations-of-digital-marketing-and-e-commerce",
+      "name": "Foundations of Digital Marketing and E-commerce",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-foundations-of-digital-marketing-and-e-commerce.png"
+    },
+    {
+      "id": "google-from-likes-to-leads-interact-with-customers-online",
+      "name": "From Likes to Leads: Interact with Customers Online",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-from-likes-to-leads-interact-with-customers-online.png"
+    },
+    {
+      "id": "google-think-outside-the-inbox-email-marketing",
+      "name": "Think Outside the Inbox: Email Marketing",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-think-outside-the-inbox-email-marketing.png"
+    },
+    {
+      "id": "google-assess-for-success-marketing-analytics-and-measurement",
+      "name": "Assess for Success: Marketing Analytics and Measurement",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-assess-for-success-marketing-analytics-and-measurement.png"
+    },
+    {
+      "id": "google-make-the-sale-build-launch-and-manage-e-commerce-stores",
+      "name": "Make the Sale: Build, Launch, and Manage E-commerce Stores",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-make-the-sale-build-launch-and-manage-e-commerce-stores.png"
+    },
+    {
+      "id": "google-satisfaction-guaranteed-develop-customer-loyalty-online",
+      "name": "Satisfaction Guaranteed: Develop Customer Loyalty Online",
+      "issuer": "Google",
+      "year": 2022,
+      "category": "digital-marketing",
+      "isFeatured": false,
+      "image": "/public/assets/certs/4-digital-marketing/google-satisfaction-guaranteed-develop-customer-loyalty-online.png"
+    }
+  ]
+}
