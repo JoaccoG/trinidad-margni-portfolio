@@ -27,6 +27,19 @@ pub fn CertificationsPage() -> impl IntoView {
             .map(std::string::ToString::to_string)
     });
 
+    let filtered_certs = Memo::new(move |_| {
+        active_filter
+            .get()
+            .map(|cat_id| {
+                store
+                    .certifications_for_category(&cat_id)
+                    .into_iter()
+                    .cloned()
+                    .collect::<Vec<Certification>>()
+            })
+            .unwrap_or_default()
+    });
+
     let modal_state = RwSignal::new(None::<(String, String)>);
     let on_open_modal = Callback::new(move |(src, alt): (String, String)| {
         modal_state.set(Some((src, alt)));
@@ -150,41 +163,30 @@ pub fn CertificationsPage() -> impl IntoView {
                             active_filter.get().is_some()
                         }>
                             {move || {
-                                active_filter
-                                    .get()
-                                    .map(|cat_id| {
-                                        let list = Arc::new(
-                                            store
-                                                .certifications_for_category(&cat_id)
-                                                .into_iter()
-                                                .cloned()
-                                                .collect::<Vec<Certification>>(),
-                                        );
-                                        let list_check = list.clone();
-                                        view! {
-                                            <Show
-                                                when=move || list_check.is_empty()
-                                                fallback=move || {
-                                                    let list = list.clone();
-                                                    view! {
-                                                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-3">
-                                                            {list
-                                                                .iter()
-                                                                .cloned()
-                                                                .map(|cert| {
-                                                                    view! { <CertCard cert=cert on_open=on_open_modal /> }
-                                                                })
-                                                                .collect_view()}
-                                                        </div>
-                                                    }
-                                                }
-                                            >
-                                                <p class="font-sans text-sm text-dark/80">
-                                                    "Coming soon — certifications in this category will appear here."
-                                                </p>
-                                            </Show>
+                                view! {
+                                    <Show
+                                        when=move || filtered_certs.with(Vec::is_empty)
+                                        fallback=move || {
+                                            view! {
+                                                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 lg:gap-3 xl:grid-cols-4 xl:gap-3">
+                                                    {move || {
+                                                        filtered_certs
+                                                            .get()
+                                                            .into_iter()
+                                                            .map(|cert| {
+                                                                view! { <CertCard cert=cert on_open=on_open_modal /> }
+                                                            })
+                                                            .collect_view()
+                                                    }}
+                                                </div>
+                                            }
                                         }
-                                    })
+                                    >
+                                        <p class="font-sans text-sm text-dark/80">
+                                            "Coming soon — certifications in this category will appear here."
+                                        </p>
+                                    </Show>
+                                }
                             }}
 
                         </Show>

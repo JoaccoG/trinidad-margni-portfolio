@@ -1,4 +1,5 @@
 use leptos::prelude::*;
+use leptos_router::components::A;
 
 use crate::components::cert_card::CertCard;
 use crate::components::cert_modal::CertModal;
@@ -16,6 +17,15 @@ pub fn Certifications() -> impl IntoView {
         .unwrap_or_default();
     let active_category = RwSignal::new(first_id);
     let modal_state = RwSignal::new(None::<(String, String)>);
+
+    let featured_for_active = Memo::new(move |_| {
+        let cat = active_category.get();
+        store
+            .featured_for_category(&cat)
+            .into_iter()
+            .cloned()
+            .collect::<Vec<_>>()
+    });
 
     let on_open_modal = Callback::new(move |(src, alt): (String, String)| {
         modal_state.set(Some((src, alt)));
@@ -90,49 +100,61 @@ pub fn Certifications() -> impl IntoView {
                         class="min-w-0"
                     >
                         <Show
-                            when=move || {
-                                let cat_id = active_category.get();
-                                store.featured_for_category(&cat_id).is_empty()
-                            }
+                            when=move || featured_for_active.with(Vec::is_empty)
                             fallback=move || {
-                                let cat_id = active_category.get();
-                                let total = store.count_for_category(&cat_id);
                                 view! {
                                     <div class="cert-home-featured-grid grid grid-cols-1 gap-3 max-[480px]:gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 lg:gap-4">
-                                        {store
-                                            .featured_for_category(&cat_id)
-                                            .into_iter()
-                                            .cloned()
-                                            .map(|cert| {
-                                                view! { <CertCard cert=cert on_open=on_open_modal /> }
-                                            })
-                                            .collect_view()}
+                                        {move || {
+                                            featured_for_active
+                                                .get()
+                                                .into_iter()
+                                                .map(|cert| {
+                                                    view! { <CertCard cert=cert on_open=on_open_modal /> }
+                                                })
+                                                .collect_view()
+                                        }}
                                     </div>
                                     <div class="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
-                                        <a
-                                            href=format!("/certifications?category={cat_id}")
-                                            class="font-sans text-xs tracking-wide text-dark underline decoration-dark/30 underline-offset-4 transition-colors hover:decoration-dark"
+                                        <A
+                                            href=move || {
+                                                format!(
+                                                    "/certifications?category={}",
+                                                    active_category.get(),
+                                                )
+                                            }
+                                            attr:class="font-sans text-xs tracking-wide text-dark underline decoration-dark/30 underline-offset-4 transition-colors hover:decoration-dark"
                                         >
-                                            {format!("See all {total} certifications →")}
-                                        </a>
+                                            {move || {
+                                                let cat = active_category.get();
+                                                let total = store.count_for_category(&cat);
+                                                format!("See all {total} certifications →")
+                                            }}
+                                        </A>
                                     </div>
                                 }
                             }
                         >
                             {move || {
-                                let cat_id = active_category.get();
-                                let total = store.count_for_category(&cat_id);
                                 view! {
                                     <div class="space-y-4">
                                         <p class="font-sans text-sm text-dark/80">
                                             "No featured certifications in this category yet."
                                         </p>
-                                        <a
-                                            href=format!("/certifications?category={cat_id}")
-                                            class="inline-flex font-sans text-xs tracking-wide text-dark underline decoration-dark/30 underline-offset-4 transition-colors hover:decoration-dark"
+                                        <A
+                                            href=move || {
+                                                format!(
+                                                    "/certifications?category={}",
+                                                    active_category.get(),
+                                                )
+                                            }
+                                            attr:class="inline-flex font-sans text-xs tracking-wide text-dark underline decoration-dark/30 underline-offset-4 transition-colors hover:decoration-dark"
                                         >
-                                            {format!("See all {total} certifications →")}
-                                        </a>
+                                            {move || {
+                                                let cat = active_category.get();
+                                                let total = store.count_for_category(&cat);
+                                                format!("See all {total} certifications →")
+                                            }}
+                                        </A>
                                     </div>
                                 }
                             }}
@@ -142,12 +164,12 @@ pub fn Certifications() -> impl IntoView {
                 </div>
 
                 <div class="mt-10 flex justify-center border-t border-dark/10 pt-10">
-                    <a
+                    <A
                         href="/certifications"
-                        class="inline-flex border border-dark bg-dark px-6 py-3 font-sans text-xs tracking-[0.2em] text-light uppercase transition-colors hover:opacity-90"
+                        attr:class="inline-flex border border-dark bg-dark px-6 py-3 font-sans text-xs tracking-[0.2em] text-light uppercase transition-colors hover:opacity-90"
                     >
                         {format!("Explore all certifications ({total_certifications})")}
-                    </a>
+                    </A>
                 </div>
             </div>
             <CertModal state=modal_state />

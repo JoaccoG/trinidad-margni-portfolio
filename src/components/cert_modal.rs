@@ -3,6 +3,7 @@ use leptos::prelude::*;
 use web_sys::HtmlElement;
 
 #[component]
+#[allow(clippy::too_many_lines)]
 pub fn CertModal(state: RwSignal<Option<(String, String)>>) -> impl IntoView {
     let dialog_ref = NodeRef::<Div>::new();
     let image_failed = RwSignal::new(false);
@@ -33,6 +34,20 @@ pub fn CertModal(state: RwSignal<Option<(String, String)>>) -> impl IntoView {
         if let Some(el) = dialog_ref.get() {
             let _ = el.focus();
         }
+    });
+
+    on_cleanup(move || {
+        let Some(win) = web_sys::window() else {
+            return;
+        };
+        let Some(doc) = win.document() else {
+            return;
+        };
+        let Some(body) = doc.body() else {
+            return;
+        };
+        let body: &HtmlElement = body.as_ref();
+        let _ = body.style().set_property("overflow", "");
     });
 
     let close = move || {
