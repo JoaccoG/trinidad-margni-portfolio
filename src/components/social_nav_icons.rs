@@ -3,11 +3,20 @@ use leptos::prelude::*;
 use crate::site_links::{INSTAGRAM_URL, LINKEDIN_URL};
 
 #[component]
-pub fn SocialNavIcons(#[prop(default = false)] centered: bool) -> impl IntoView {
+pub fn SocialNavIcons(
+    #[prop(default = false)] centered: bool,
+    #[prop(default = true)] invert: bool,
+) -> impl IntoView {
     let wrapper = if centered {
         "flex items-center justify-center gap-4"
     } else {
         "flex items-center gap-4"
+    };
+
+    let icon_class = if invert {
+        "h-[18px] w-[18px] invert"
+    } else {
+        "h-[18px] w-[18px]"
     };
 
     view! {
@@ -22,7 +31,7 @@ pub fn SocialNavIcons(#[prop(default = false)] centered: bool) -> impl IntoView 
                 <img
                     src="/public/assets/icons/linkedin.svg"
                     alt=""
-                    class="h-[18px] w-[18px] invert"
+                    class=icon_class
                     aria-hidden="true"
                 />
             </a>
@@ -36,7 +45,7 @@ pub fn SocialNavIcons(#[prop(default = false)] centered: bool) -> impl IntoView 
                 <img
                     src="/public/assets/icons/instagram.svg"
                     alt=""
-                    class="h-[18px] w-[18px] invert"
+                    class=icon_class
                     aria-hidden="true"
                 />
             </a>
