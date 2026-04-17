@@ -325,3 +325,43 @@ async fn footer_renders_credit_and_portfolio_links() {
         "footer nav should include home hash link"
     );
 }
+
+#[wasm_bindgen_test]
+async fn contact_section_renders_form() {
+    prepare_test_mount().await;
+    let _app = mount_to(leptos_test_host(), || {
+        view! { <App /> }
+    });
+
+    yield_now().await;
+
+    let doc = web_sys::window().unwrap().document().unwrap();
+
+    let section = doc
+        .query_selector("#contact")
+        .unwrap()
+        .expect("contact section should exist");
+
+    let section_text = section.text_content().unwrap_or_default();
+    assert!(
+        section_text.contains("Let\u{2019}s Connect"),
+        "contact should have heading"
+    );
+
+    assert!(
+        doc.query_selector("#contact input[type='email']")
+            .unwrap()
+            .is_some(),
+        "contact form should have email input"
+    );
+    assert!(
+        doc.query_selector("#contact textarea").unwrap().is_some(),
+        "contact form should have message textarea"
+    );
+    assert!(
+        doc.query_selector("#contact button[type='submit']")
+            .unwrap()
+            .is_some(),
+        "contact form should have submit button"
+    );
+}

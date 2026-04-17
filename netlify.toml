@@ -4,7 +4,11 @@
 
 [build.environment]
   RUSTUP_TOOLCHAIN = "stable"
-  CARGO_TARGET_DIR = "/opt/buildhome/.cache/cargo-target"
+
+[dev]
+  command = "trunk serve"
+  targetPort = 3000
+  framework = "#custom"
 
 [[redirects]]
   from = "/*"
