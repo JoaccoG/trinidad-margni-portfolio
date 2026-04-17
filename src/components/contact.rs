@@ -1,5 +1,6 @@
 use leptos::prelude::*;
 use leptos::task::spawn_local;
+use wasm_bindgen::JsCast;
 use wasm_bindgen::prelude::*;
 
 const RATE_LIMIT_KEY: &str = "contact_timestamps";
@@ -53,6 +54,22 @@ fn record_submission() {
     }
 }
 
+fn honeypot_value(ev: &web_sys::SubmitEvent) -> String {
+    let Some(target) = ev.target() else {
+        return String::new();
+    };
+    let Ok(form) = target.dyn_into::<web_sys::HtmlFormElement>() else {
+        return String::new();
+    };
+    match form.query_selector("input[name=\"_gotcha\"]") {
+        Ok(Some(node)) => node
+            .dyn_into::<web_sys::HtmlInputElement>()
+            .map(|input| input.value())
+            .unwrap_or_default(),
+        _ => String::new(),
+    }
+}
+
 fn is_valid_email(email: &str) -> bool {
     let trimmed = email.trim();
     let parts: Vec<&str> = trimmed.splitn(2, '@').collect();
@@ -64,12 +81,13 @@ fn is_valid_email(email: &str) -> bool {
 }
 
 #[allow(clippy::future_not_send)]
-async fn submit_contact(email: &str, message: &str) -> Result<(), String> {
+async fn submit_contact(email: &str, message: &str, gotcha: &str) -> Result<(), String> {
     let win = web_sys::window().ok_or("No window")?;
 
     let body = serde_json::json!({
         "email": email.trim(),
         "message": message.trim(),
+        "_gotcha": gotcha,
     });
 
     let opts = web_sys::RequestInit::new();
@@ -156,10 +174,12 @@ pub fn Contact() -> impl IntoView {
             return;
         }
 
+        let gotcha_val = honeypot_value(&ev);
+
         form_state.set(FormState::Submitting);
 
         spawn_local(async move {
-            match submit_contact(&email_val, &message_val).await {
+            match submit_contact(&email_val, &message_val, &gotcha_val).await {
                 Ok(()) => {
                     record_submission();
                     email.set(String::new());
@@ -214,7 +234,7 @@ pub fn Contact() -> impl IntoView {
                     <header class="space-y-2 sm:space-y-3">
                         <p class="font-display text-xl sm:text-2xl md:text-4xl">
                             // "I\u{2019}d love to hear from you"
-                            "Want to talk ?"
+                            "Want to talk?"
                         </p>
                         <h2
                             id="contact-heading"
@@ -226,8 +246,7 @@ pub fn Contact() -> impl IntoView {
 
                     <p class="max-w-prose font-sans text-xs leading-relaxed text-secondary/80 sm:text-sm md:text-base">
                         "Interested in working together or learning more about my experience in project management and tech?"
-                        <br />
-                        "Send me a message and I\u{2019}ll be in touch!"
+                        <br /> "Send me a message and I\u{2019}ll be in touch!"
                     </p>
 
                     <form class="flex flex-col gap-3 sm:gap-4" on:submit=on_submit>
@@ -304,7 +323,7 @@ pub fn Contact() -> impl IntoView {
 
                         <button
                             type="submit"
-                            class="w-fit cursor-pointer border border-secondary bg-secondary px-6 py-3 font-sans text-xs tracking-[0.2em] uppercase text-dark transition-opacity hover:opacity-90 disabled:cursor-pointer"
+                            class="w-fit border border-secondary bg-secondary px-6 py-3 font-sans text-xs tracking-[0.2em] uppercase text-dark transition-opacity hover:opacity-90 enabled:cursor-pointer disabled:cursor-not-allowed"
                             disabled=move || {
                                 is_submitting() || form_state.get() == FormState::Success
                             }

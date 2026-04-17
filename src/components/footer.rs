@@ -10,8 +10,8 @@ fn footer_year() -> i32 {
 }
 
 #[component]
-pub fn Footer(#[prop(default = false)] dark: bool) -> impl IntoView {
-    let (footer_cls, name_cls, nav_cls, credit_cls, credit_link_cls) = if dark {
+pub fn Footer(#[prop(default = false)] is_dark: bool) -> impl IntoView {
+    let (footer_cls, name_cls, nav_cls, credit_cls, credit_link_cls) = if is_dark {
         (
             "w-full border-t border-light/10 bg-dark text-light",
             "cursor-pointer font-serif text-base tracking-[0.2em] uppercase text-light transition-opacity hover:opacity-60 sm:text-xl md:text-2xl",
@@ -53,7 +53,7 @@ pub fn Footer(#[prop(default = false)] dark: bool) -> impl IntoView {
                         .collect_view()}
                 </nav>
 
-                <SocialNavIcons centered=true invert=dark />
+                <SocialNavIcons is_centered=true is_inverted=is_dark />
 
                 <p class=credit_cls>
                     "Designed & Built by "

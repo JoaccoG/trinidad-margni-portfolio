@@ -4,16 +4,16 @@ use crate::site_links::{INSTAGRAM_URL, LINKEDIN_URL};
 
 #[component]
 pub fn SocialNavIcons(
-    #[prop(default = false)] centered: bool,
-    #[prop(default = true)] invert: bool,
+    #[prop(default = false)] is_centered: bool,
+    #[prop(default = true)] is_inverted: bool,
 ) -> impl IntoView {
-    let wrapper = if centered {
+    let wrapper = if is_centered {
         "flex items-center justify-center gap-4"
     } else {
         "flex items-center gap-4"
     };
 
-    let icon_class = if invert {
+    let icon_class = if is_inverted {
         "h-[18px] w-[18px] invert"
     } else {
         "h-[18px] w-[18px]"

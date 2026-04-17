@@ -273,7 +273,7 @@ pub fn CertificationsPage() -> impl IntoView {
                         </Show>
                     </div>
                 </section>
-                <Footer dark=true />
+                <Footer is_dark=true />
             </div>
             <CertModal state=modal_state />
         </>
