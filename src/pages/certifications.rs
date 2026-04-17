@@ -67,7 +67,7 @@ pub fn CertificationsPage() -> impl IntoView {
     view! {
         <>
             <Title text="Certifications — Trinidad Margni" />
-            <div class="min-h-screen bg-secondary text-dark">
+            <div class="flex min-h-screen flex-col bg-secondary text-dark">
                 <div class="border-b border-dark/10 bg-light/40 px-4 py-4 sm:px-8">
                     <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4">
                         <A href="/">
@@ -83,7 +83,10 @@ pub fn CertificationsPage() -> impl IntoView {
                     </div>
                 </div>
 
-                <section class="px-4 py-12 sm:px-8 lg:px-16" aria-labelledby="all-certs-heading">
+                <section
+                    class="flex-1 px-4 py-12 sm:px-8 lg:px-16"
+                    aria-labelledby="all-certs-heading"
+                >
                     <header class="mx-auto mb-10 max-w-6xl space-y-3 text-center sm:mb-12">
                         <p class="font-display text-xl sm:text-2xl md:text-4xl">
                             "always learning"
@@ -270,7 +273,7 @@ pub fn CertificationsPage() -> impl IntoView {
                         </Show>
                     </div>
                 </section>
-                <Footer />
+                <Footer dark=true />
             </div>
             <CertModal state=modal_state />
         </>
