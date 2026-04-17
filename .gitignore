@@ -22,3 +22,6 @@ Thumbs.db
 
 # WASM artifacts (generated)
 *.wasm.map
+
+# Local Netlify folder
+.netlify
