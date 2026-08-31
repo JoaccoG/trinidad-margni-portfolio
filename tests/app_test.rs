@@ -125,13 +125,15 @@ async fn app_renders_header_and_hero() {
         "about should contain bio"
     );
 
-    let resume_link = doc
-        .query_selector("a[href='/public/files/resume.pdf']")
-        .unwrap();
-    assert!(
-        resume_link.is_some(),
-        "about should link to English resume PDF"
-    );
+    for href in [
+        "/public/files/cv-en.pdf",
+        "/public/files/cv-es.pdf",
+        "/public/files/cv-ai-friendly.pdf",
+    ] {
+        let selector = format!("a[href='{href}']");
+        let resume_link = doc.query_selector(&selector).unwrap();
+        assert!(resume_link.is_some(), "about should link to {href}");
+    }
 }
 
 #[wasm_bindgen_test]
@@ -185,13 +187,22 @@ async fn about_resume_uses_icon_assets() {
         "resume control should load chevron from public assets"
     );
 
+    let resume_links = about
+        .query_selector_all("details.about-resume a[href^='/public/files/']")
+        .unwrap();
+    assert_eq!(
+        resume_links.length(),
+        3,
+        "about should offer three resume files"
+    );
+
     let external_icons = doc
         .query_selector_all("#about img[src*='external-link.svg']")
         .unwrap();
-    let n = external_icons.length();
-    assert!(
-        n >= 2 && n.is_multiple_of(2),
-        "each about block should have two external-link icons (found {n})"
+    assert_eq!(
+        external_icons.length(),
+        resume_links.length(),
+        "each resume link should have an external-link icon"
     );
 }
 
