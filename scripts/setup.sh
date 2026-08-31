@@ -26,7 +26,7 @@ printf "${GREEN}(✔)${RESET} ${GRAY}WASM target ready.${RESET}\n"
 printf "${YELLOW}(→)${RESET} ${GRAY}Checking Trunk...${RESET}\n"
 if ! command -v trunk > /dev/null 2>&1; then
     printf "${YELLOW}(→)${RESET} ${GRAY}Installing Trunk...${RESET}\n"
-    cargo install trunk
+    cargo install trunk --locked
 fi
 printf "${GREEN}(✔)${RESET} ${GRAY}Trunk $(trunk --version | cut -d' ' -f2) ready.${RESET}\n"
 
@@ -34,7 +34,7 @@ printf "${GREEN}(✔)${RESET} ${GRAY}Trunk $(trunk --version | cut -d' ' -f2) re
 printf "${YELLOW}(→)${RESET} ${GRAY}Checking leptosfmt...${RESET}\n"
 if ! command -v leptosfmt > /dev/null 2>&1; then
     printf "${YELLOW}(→)${RESET} ${GRAY}Installing leptosfmt...${RESET}\n"
-    cargo install leptosfmt
+    cargo install leptosfmt --locked
 fi
 printf "${GREEN}(✔)${RESET} ${GRAY}leptosfmt ready.${RESET}\n"
 

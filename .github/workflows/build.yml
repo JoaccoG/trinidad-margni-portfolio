@@ -24,7 +24,7 @@ jobs:
         uses: Swatinem/rust-cache@v2
 
       - name: (>) Install Trunk
-        run: cargo install trunk
+        run: cargo install trunk --locked
 
       - name: (>) Build for production
         run: trunk build --release
