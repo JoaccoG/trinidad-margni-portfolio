@@ -1,5 +1,12 @@
 use leptos::prelude::*;
 
+/// Resume files offered by the "MY RESUME" dropdown, in display order.
+const RESUMES: [(&str, &str); 3] = [
+    ("/public/files/cv-en.pdf", "English"),
+    ("/public/files/cv-es.pdf", "Spanish"),
+    ("/public/files/cv-ai-friendly.pdf", "Harvard - AI Friendly"),
+];
+
 #[component]
 pub fn About() -> impl IntoView {
     view! {
@@ -53,39 +60,30 @@ pub fn About() -> impl IntoView {
                                 aria-hidden="true"
                             />
                         </summary>
-                        <div class="absolute left-0 top-full z-50 flex min-w-full w-max flex-col border border-dark bg-secondary/95 text-dark shadow-lg backdrop-blur-sm">
-                            <a
-                                class="flex w-full items-center justify-between gap-3 border-b border-dark/20 px-6 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
-                                href="/public/files/resume.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                "English"
-                                <img
-                                    src="/public/assets/icons/external-link.svg"
-                                    alt=""
-                                    width="14"
-                                    height="14"
-                                    class="h-3.5 w-3.5 shrink-0"
-                                    aria-hidden="true"
-                                />
-                            </a>
-                            <a
-                                class="flex w-full items-center justify-between gap-3 px-6 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
-                                href="/public/files/cv.pdf"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                "Spanish"
-                                <img
-                                    src="/public/assets/icons/external-link.svg"
-                                    alt=""
-                                    width="14"
-                                    height="14"
-                                    class="h-3.5 w-3.5 shrink-0"
-                                    aria-hidden="true"
-                                />
-                            </a>
+                        <div class="absolute left-0 top-full z-50 flex min-w-full w-max flex-col divide-y divide-dark/20 border border-dark bg-secondary/95 text-dark shadow-lg backdrop-blur-sm">
+                            {RESUMES
+                                .iter()
+                                .map(|(href, label)| {
+                                    view! {
+                                        <a
+                                            class="flex w-full items-center justify-between gap-3 px-6 py-3 font-sans text-xs tracking-[0.15em] uppercase transition-colors hover:bg-primary"
+                                            href=*href
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            {*label}
+                                            <img
+                                                src="/public/assets/icons/external-link.svg"
+                                                alt=""
+                                                width="14"
+                                                height="14"
+                                                class="h-3.5 w-3.5 shrink-0"
+                                                aria-hidden="true"
+                                            />
+                                        </a>
+                                    }
+                                })
+                                .collect_view()}
                         </div>
                     </details>
                 </div>
