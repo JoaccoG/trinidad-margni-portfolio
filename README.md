@@ -2,7 +2,7 @@
 
 # Trinidad Margni — Portfolio
 
-**The personal site of a Senior Project Manager, written in Rust and compiled to WebAssembly — one binary, no JavaScript framework, served as a static bundle.**
+**The personal site of a Senior Project Manager, written in Rust and compiled to WebAssembly. No JavaScript framework anywhere in it.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-E1DACA?style=flat-square&labelColor=000000)](LICENSE)
 [![Rust](https://img.shields.io/badge/Rust-edition_2024-E1DACA?style=flat-square&labelColor=000000)](https://www.rust-lang.org/)
@@ -17,7 +17,7 @@
 
 **[▶ trinidadmargni.com](https://trinidadmargni.com)**
 
-<img src="public/assets/images/preview.png" width="760" alt="The site's landing section: a portrait on the left half, black on the right, and the headline 'Leading projects that align teams, drive results, and deliver impact' centred across both." />
+<img src="public/assets/images/preview.png" width="760" alt="The site's landing section: a portrait on the left half, black on the right, and the headline 'Leading projects that align teams, drive results, and deliver impact' centered across both." />
 
 </div>
 
@@ -27,7 +27,7 @@
 
 **Trinidad Margni** is a Senior Project Manager who has led delivery for YouTube and United Airlines. This is her site: a single-page editorial layout, a filterable wall of 78 certifications, three downloadable résumés, and a contact form that reaches her inbox.
 
-None of it runs on React. The whole front end is Rust — [Leptos](https://leptos.dev/) in client-side rendering mode, compiled to `wasm32-unknown-unknown`, bundled by [Trunk](https://trunkrs.dev/), and shipped to Netlify as static files plus one serverless function. The choice was deliberate: fine-grained reactivity without a virtual DOM, the compiler catching template mistakes at build time, and a dependency tree that doesn't move under you.
+None of it runs on React. The front end is [Leptos](https://leptos.dev/) in client-side rendering mode, compiled to `wasm32-unknown-unknown`, bundled by [Trunk](https://trunkrs.dev/) and served from Netlify as static files plus one serverless function. Leptos gives fine-grained reactivity with no virtual DOM, and its `view!` macro is expanded by the compiler, so a typo in the markup fails the build rather than the page.
 
 ## What ships
 
@@ -40,33 +40,33 @@ Measured on the release build (`trunk build --release`, `opt-level = "z"` + LTO)
 | CSS | 57 KB | 8.6 KB | 7.2 KB |
 | **total** | **651 KB** | **229 KB** | **189 KB** |
 
-189 KB over the wire for a complete client-rendered app — in the same range as an equivalent React build, which is the honest comparison. The WebAssembly also carries the entire certification dataset baked in (see below), so it is doing more than rendering. The point of Rust here was never to win a size benchmark; it was to get a type-checked UI with no runtime surprises.
+189 KB over the wire, which lands in the same range as an equivalent React build. Rust doesn't win a size benchmark here and was never picked to. The WebAssembly is also carrying the entire certification dataset, compiled into it.
 
 ## What's on it
 
-**Home** — a full-viewport hero, an about section with the résumé dropdown, an infinite marquee of the companies she has worked with, a preview of her certifications, and the contact form.
+**Home.** A full-viewport hero, the about section with the résumé dropdown, an infinite marquee of the companies she has worked with, a preview of the certifications, and the contact form.
 
-**`/certifications`** — the full wall: **78 certifications across 6 categories** (Project Management & CSM, Artificial Intelligence, Web Development, Digital Marketing, Product Management & e-Commerce, Communications). The data lives as JSON under `public/data/certs/`, one bundle per category, and is pulled into the binary at compile time with `include_str!` — so there is no fetch, no loading state, and a malformed bundle is a build failure rather than a blank section. Filtering is driven by the URL (`/certifications?category=artificial-intelligence`), which makes any filtered view a shareable link.
+**`/certifications`.** The full wall: **78 certifications across 6 categories** (Project Management & CSM, Artificial Intelligence, Web Development, Digital Marketing, Product Management & e-Commerce, Communications). The data lives as JSON under `public/data/certs/`, one bundle per category, pulled into the binary at compile time with `include_str!`. There is no fetch and no loading state, and a malformed bundle fails the build instead of rendering a blank section. Filtering runs through the URL (`/certifications?category=artificial-intelligence`), so any filtered view is a shareable link.
 
-**Résumés** — English, Spanish, and a Harvard-format, AI-friendly version, served straight from `public/files/`.
+**Résumés.** English, Spanish, and a Harvard-format, AI-friendly version, served straight from `public/files/`.
 
 ## The contact form
 
-There is no third-party form widget and no API key in the browser. The form posts to a [Netlify Function](netlify/functions/contact.mjs) that validates the payload, drops honeypot submissions, HTML-escapes both fields, and hands the message to [Resend](https://resend.com/). Method, JSON shape, email format, and both field lengths are all checked server-side; the key lives only in the Netlify environment.
+No third-party form widget, and no API key in the browser. The form posts to a [Netlify Function](netlify/functions/contact.mjs) that checks the method, the JSON shape, the email format and both field lengths, drops honeypot submissions, HTML-escapes what survives, and hands the message to [Resend](https://resend.com/). The key lives only in the Netlify environment.
 
 ## Checked, not trusted
 
-Quality gates run in three places, and they run the same commands.
+`unsafe_code` is denied outright, and Clippy runs with `pedantic` and `nursery` promoted to warnings, all of them denied in CI.
 
-**Git hooks** ([`.githooks/`](.githooks), wired through `core.hooksPath`) — `pre-commit` blocks on `cargo fmt --check` and `cargo clippy -- -D warnings`; `pre-push` additionally validates the branch name (`feature/…` or `bug/…`), runs a release build, and runs the tests.
+**Git hooks** ([`.githooks/`](.githooks), wired through `core.hooksPath`). `pre-commit` blocks on `cargo fmt --check` and `cargo clippy -- -D warnings`. `pre-push` validates the branch name against `feature/…` or `bug/…`, then runs a release build and `cargo test`.
 
-**GitHub Actions** — three workflows on every pull request: a production build, the WASM browser tests, and a code audit.
+**GitHub Actions** runs three workflows on every pull request: the release build, `wasm-pack test --headless --chrome`, and an audit that repeats fmt and clippy.
 
-**The lints are strict on purpose.** `unsafe_code` is denied outright, and Clippy runs with `pedantic` + `nursery` promoted to warnings, all of which are denied in CI. Browser behaviour is covered by [`tests/app_test.rs`](tests/app_test.rs) — real assertions against a real DOM, executed by `wasm-bindgen-test` in headless Chrome.
+The line between those two is worth knowing. Every assertion in [`tests/app_test.rs`](tests/app_test.rs) is a `wasm_bindgen_test`, so a plain `cargo test` on the host compiles all of them and runs none. Only `wasm-pack` puts them in front of a real DOM. When the pre-push hook prints "Running tests", it means the native ones; CI is what actually exercises the browser.
 
 ## Running locally
 
-One-time setup — checks the Rust toolchain, adds the `wasm32-unknown-unknown` target, installs Trunk and leptosfmt, warms the dependency cache, and points git at the repo's hooks:
+One-time setup, which checks the Rust toolchain, adds the `wasm32-unknown-unknown` target, installs Trunk and leptosfmt, warms the dependency cache and points git at the repo's hooks:
 
 ```bash
 ./scripts/setup.sh
@@ -82,20 +82,22 @@ trunk serve --open      # http://localhost:3000
 trunk build --release   # production bundle → dist/
 ```
 
-The full gate, in the order the hooks run it:
+Everything the hooks and CI check, in one place:
 
 ```bash
-cargo fmt                            # format (leptosfmt for view! macros)
+cargo fmt
 cargo clippy --all-targets -- -D warnings
-cargo test                           # native unit tests
-wasm-pack test --headless --chrome   # browser integration tests
+cargo test
+wasm-pack test --headless --chrome
 ```
 
-> `wasm-pack` downloads a ChromeDriver matching the latest Chrome. If your installed Chrome is older, point it at a matching driver with `CHROMEDRIVER=/path/to/chromedriver`.
+The last line is the one no hook runs, which makes it the one worth running by hand before opening a pull request.
+
+> `wasm-pack` downloads its own ChromeDriver for the newest Chrome and overrides `CHROMEDRIVER`, so an older local Chrome fails with a driver that dies on startup. Until Chrome catches up, skip the wrapper and drive the underlying runner directly: point `CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_RUNNER` at wasm-pack's cached `wasm-bindgen-test-runner`, set `CHROMEDRIVER` to a driver matching your Chrome and `WASM_BINDGEN_TEST_ONLY_WEB=1`, then run `cargo test --target wasm32-unknown-unknown`.
 
 ## Environment
 
-The contact function needs three variables — locally in `.env`, in production in the Netlify dashboard. See [`.env.example`](.env.example):
+The contact function needs three variables: in `.env` locally, in the Netlify dashboard in production. See [`.env.example`](.env.example):
 
 ```bash
 RESEND__API_KEY=re_your_api_key_here
@@ -103,27 +105,10 @@ EMAILS__FROM=Portfolio Contact <contact@mail.yourdomain.com>
 EMAILS__TO=recipient@example.com
 ```
 
-## Layout
-
-```
-src/
-  components/     one component per file — hero, about, companies, certifications, contact, footer, header
-  pages/          home, certifications, not_found
-  data/           certification loading and types
-  site_links.rs   shared nav labels and external URLs
-public/
-  data/certs/     the certification index + one JSON bundle per category
-  files/          cv-en.pdf · cv-es.pdf · cv-ai-friendly.pdf
-  assets/         images and icons
-netlify/functions/
-  contact.mjs     the contact form endpoint
-tests/app_test.rs headless-browser integration tests
-```
-
 ## Built with
 
-**Rust** (edition 2024) · **Leptos 0.8** CSR with `leptos_router` and `leptos_meta` · **Tailwind CSS v4** · **Trunk** · **Netlify** static hosting and Functions · **Resend** for transactional email. Typefaces are GFS Didot, Montserrat, and Allura.
+Leptos 0.8 with `leptos_router` and `leptos_meta`, Tailwind CSS v4 and Trunk, on Rust edition 2024. Netlify serves the static build and runs the contact function, Resend delivers the mail. The type is GFS Didot, Montserrat and Allura.
 
 ## License
 
-[MIT](LICENSE) © 2026 Joaquín Godoy — design and engineering. Site content, imagery, and résumés belong to Trinidad Margni.
+[MIT](LICENSE) © 2026 Joaquín Godoy, for the design and the engineering. Site content, imagery and résumés belong to Trinidad Margni.
