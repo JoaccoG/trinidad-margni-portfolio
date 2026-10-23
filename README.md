@@ -25,7 +25,7 @@
 
 > A portfolio site is a solved problem. This one is solved in Rust.
 
-**Trinidad Margni** is a Senior Project Manager who has led delivery for YouTube and United Airlines. This is her site: a single-page editorial layout, a filterable wall of 78 certifications, three downloadable résumés, and a contact form that reaches her inbox.
+**Trinidad Margni** is a Senior Project Manager who has led delivery for YouTube and United Airlines. This is her site: a single-page editorial layout, a filterable wall of 84 certifications, three downloadable résumés, and a contact form that reaches her inbox.
 
 None of it runs on React. The front end is [Leptos](https://leptos.dev/) in client-side rendering mode, compiled to `wasm32-unknown-unknown`, bundled by [Trunk](https://trunkrs.dev/) and served from Netlify as static files plus one serverless function. Leptos gives fine-grained reactivity with no virtual DOM, and its `view!` macro is expanded by the compiler, so a typo in the markup fails the build rather than the page.
 
@@ -35,10 +35,10 @@ Measured on the release build (`trunk build --release`, `opt-level = "z"` + LTO)
 
 | asset | raw | gzip | brotli |
 |:--|--:|--:|--:|
-| WebAssembly | 545 KB | 212 KB | 174 KB |
+| WebAssembly | 548 KB | 213 KB | 174 KB |
 | JS glue | 49 KB | 8.4 KB | 7.1 KB |
 | CSS | 57 KB | 8.6 KB | 7.2 KB |
-| **total** | **651 KB** | **229 KB** | **189 KB** |
+| **total** | **653 KB** | **230 KB** | **189 KB** |
 
 189 KB over the wire, which lands in the same range as an equivalent React build. Rust doesn't win a size benchmark here and was never picked to. The WebAssembly is also carrying the entire certification dataset, compiled into it.
 
@@ -46,7 +46,7 @@ Measured on the release build (`trunk build --release`, `opt-level = "z"` + LTO)
 
 **Home.** A full-viewport hero, the about section with the résumé dropdown, an infinite marquee of the companies she has worked with, a preview of the certifications, and the contact form.
 
-**`/certifications`.** The full wall: **78 certifications across 6 categories** (Project Management & CSM, Artificial Intelligence, Web Development, Digital Marketing, Product Management & e-Commerce, Communications). The data lives as JSON under `public/data/certs/`, one bundle per category, pulled into the binary at compile time with `include_str!`. There is no fetch and no loading state, and a malformed bundle fails the build instead of rendering a blank section. Filtering runs through the URL (`/certifications?category=artificial-intelligence`), so any filtered view is a shareable link.
+**`/certifications`.** The full wall: **84 certifications across 6 categories** (Project Management & CSM, Artificial Intelligence, Web Development, Digital Marketing, Product Management & e-Commerce, Communications). The data lives as JSON under `public/data/certs/`, one bundle per category, pulled into the binary at compile time with `include_str!`. There is no fetch and no loading state, and a malformed bundle fails the build instead of rendering a blank section. Filtering runs through the URL (`/certifications?category=artificial-intelligence`), so any filtered view is a shareable link.
 
 **Résumés.** English, Spanish, and a Harvard-format, AI-friendly version, served straight from `public/files/`.
 
