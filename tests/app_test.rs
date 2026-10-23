@@ -85,7 +85,7 @@ async fn app_renders_header_and_hero() {
 
     let hero_text = hero.unwrap().text_content().unwrap_or_default();
     assert!(
-        hero_text.contains("Leading Projects"),
+        hero_text.contains("Leading Global IT Teams"),
         "hero should have title"
     );
     assert!(

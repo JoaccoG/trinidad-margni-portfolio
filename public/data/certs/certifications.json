@@ -3,12 +3,12 @@
     {
       "id": "project-management",
       "name": "Project Management & CSM",
-      "order": 10
+      "order": 20
     },
     {
       "id": "artificial-intelligence",
       "name": "Artificial Intelligence",
-      "order": 20
+      "order": 10
     },
     {
       "id": "web-development",

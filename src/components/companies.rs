@@ -1,6 +1,6 @@
 use leptos::prelude::*;
 
-const COMPANIES: [(&str, &str); 6] = [
+const COMPANIES: [(&str, &str); 7] = [
     ("YouTube", "/public/assets/images/companies/youtube.png"),
     (
         "United Airlines",
@@ -9,6 +9,10 @@ const COMPANIES: [(&str, &str); 6] = [
     ("VML", "/public/assets/images/companies/vml.png"),
     ("Monks", "/public/assets/images/companies/monks.png"),
     ("Nortal", "/public/assets/images/companies/nortal.png"),
+    (
+        "ServiceNow",
+        "/public/assets/images/companies/servicenow.png",
+    ),
     (
         "Snappy Commerce",
         "/public/assets/images/companies/snappy-commerce.png",
