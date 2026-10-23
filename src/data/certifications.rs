@@ -224,6 +224,13 @@ mod tests {
     }
 
     #[test]
+    fn artificial_intelligence_is_the_default_category() {
+        let data = load_certifications_data();
+        let ids: Vec<&str> = data.categories.iter().map(|c| c.id.as_str()).collect();
+        assert_eq!(ids[..2], ["artificial-intelligence", "project-management"]);
+    }
+
+    #[test]
     fn featured_for_category_sorted_by_order_then_id() {
         let data = load_certifications_data();
         let featured = data.featured_for_category("digital-marketing");
