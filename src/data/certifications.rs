@@ -207,7 +207,7 @@ mod tests {
     #[test]
     fn load_certifications_has_expected_catalog_size() {
         let data = load_certifications_data();
-        assert_eq!(data.certifications.len(), 78);
+        assert_eq!(data.certifications.len(), 83);
     }
 
     #[test]

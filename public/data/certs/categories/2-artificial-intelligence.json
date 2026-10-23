@@ -31,13 +31,22 @@
       "image": "/public/assets/certs/2-artificial-intelligence/google-prompting-essentials.jpg"
     },
     {
+      "id": "anthropic-awit-real-world-ai-with-claude",
+      "name": "Real-World AI with Claude",
+      "issuer": "Anthropic & AWIT",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": true,
+      "order": 400,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-awit-real-world-ai-with-claude.jpg"
+    },
+    {
       "id": "google-maximize-productivity-with-ai-tools",
       "name": "Maximize Productivity With AI Tools",
       "issuer": "Google",
       "year": 2025,
       "category": "artificial-intelligence",
-      "isFeatured": true,
-      "order": 400,
+      "isFeatured": false,
       "image": "/public/assets/certs/2-artificial-intelligence/google-maximize-productivity-with-ai-tools.jpg"
     },
     {
@@ -140,6 +149,42 @@
       "category": "artificial-intelligence",
       "isFeatured": false,
       "image": "/public/assets/certs/2-artificial-intelligence/anthropic-introduction-to-model-context-protocol.jpg"
+    },
+    {
+      "id": "anthropic-awit-ai-fundamentals-with-claude",
+      "name": "AI Fundamentals with Claude",
+      "issuer": "Anthropic & AWIT",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-awit-ai-fundamentals-with-claude.jpg"
+    },
+    {
+      "id": "anthropic-awit-ai-collaboration-with-claude",
+      "name": "AI Collaboration with Claude",
+      "issuer": "Anthropic & AWIT",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-awit-ai-collaboration-with-claude.jpg"
+    },
+    {
+      "id": "anthropic-awit-ai-automation-with-claude",
+      "name": "AI Automation with Claude",
+      "issuer": "Anthropic & AWIT",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/anthropic-awit-ai-automation-with-claude.jpg"
+    },
+    {
+      "id": "coderhouse-ai-automation",
+      "name": "AI Automation",
+      "issuer": "Coderhouse",
+      "year": 2026,
+      "category": "artificial-intelligence",
+      "isFeatured": false,
+      "image": "/public/assets/certs/2-artificial-intelligence/coderhouse-ai-automation.jpg"
     }
   ]
 }
