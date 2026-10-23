@@ -36,15 +36,18 @@ pub fn About() -> impl IntoView {
                     </header>
 
                     <p class="max-w-prose font-sans text-xs font-semibold leading-snug sm:text-sm md:text-base">
-                        "Senior Project Manager leading execution across global teams within complex marketing and tech environments."
+                        "Project Manager leading global IT teams and using AI to make delivery management faster and more reliable."
                     </p>
 
                     <div class="max-w-prose space-y-4 font-sans text-xs leading-relaxed text-dark/90 sm:text-sm md:text-base">
                         <p>
-                            "I have led projects for organizations such as United Airlines and YouTube, and I currently support high-performing teams working with ServiceNow—ensuring alignment, consistent delivery, and continuous improvement across distributed teams."
+                            "At Nortal, I lead ~40 IT professionals on the ServiceNow account across 14+ countries and own project reporting for ~10 engineering and platform teams, each running 3 to 5 concurrent projects. The initiatives I report on include AI chatbot and Live Agent features, CI/CD and cloud automation, QA test automation, data engineering pipelines and platform migrations."
                         </p>
                         <p>
-                            "With a strong foundation in leadership and ongoing MBA studies, I specialize in transforming complexity into structured execution, fostering collaboration, and delivering impactful results."
+                            "I use AI to automate delivery processes, and I support my teams in applying it with a purpose, identifying where it adds real value to their work."
+                        </p>
+                        <p>
+                            "Earlier, I managed web releases and email development for United Airlines and YouTube. I'm a Certified ScrumMaster® pursuing an MBA, with a focus on risk management, capacity planning and AI adoption."
                         </p>
                     </div>
 

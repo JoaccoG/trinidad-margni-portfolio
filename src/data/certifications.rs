@@ -207,7 +207,7 @@ mod tests {
     #[test]
     fn load_certifications_has_expected_catalog_size() {
         let data = load_certifications_data();
-        assert_eq!(data.certifications.len(), 78);
+        assert_eq!(data.certifications.len(), 84);
     }
 
     #[test]
@@ -221,6 +221,13 @@ mod tests {
                 cat.id
             );
         }
+    }
+
+    #[test]
+    fn artificial_intelligence_is_the_default_category() {
+        let data = load_certifications_data();
+        let ids: Vec<&str> = data.categories.iter().map(|c| c.id.as_str()).collect();
+        assert_eq!(ids[..2], ["artificial-intelligence", "project-management"]);
     }
 
     #[test]

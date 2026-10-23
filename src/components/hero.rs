@@ -26,7 +26,7 @@ pub fn Hero() -> impl IntoView {
                         "Senior Project Manager"
                     </p>
                     <h1 class="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl uppercase leading-tight text-light max-w-4xl">
-                        "Leading Projects That Align Teams, Drive Results, and Deliver Impact"
+                        "Leading Global IT Teams with AI-Enabled Delivery"
                     </h1>
                     <a
                         href="#about"
