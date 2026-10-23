@@ -176,6 +176,15 @@
       "category": "project-management",
       "isFeatured": false,
       "image": "/public/assets/certs/1-project-management-and-csm/ibm-project-management-capstone.png"
+    },
+    {
+      "id": "coderhouse-business-administration",
+      "name": "Business Administration",
+      "issuer": "Coderhouse",
+      "year": 2026,
+      "category": "project-management",
+      "isFeatured": false,
+      "image": "/public/assets/certs/1-project-management-and-csm/coderhouse-business-administration.jpg"
     }
   ]
 }
